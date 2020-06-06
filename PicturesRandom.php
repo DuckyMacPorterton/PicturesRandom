@@ -28,7 +28,7 @@ function PicturesRandom ($strTargetDir, $strSourceDir, $nSpaceReallyFullK)
 	//  Now choose those files
 
 	$nCopied = 0;
-	while ($nSpaceAvailable > $nSpaceReallyFullK)
+	while ($nSpaceAvailable > $nSpaceReallyFullK && $nTriesToFindFileThatFits > 0)
 	{
 		//
 		//  Pick a random file
