@@ -9,6 +9,8 @@ function PicturesRandom ($strTargetDir, $strSourceDir, $nSpaceReallyFullK)
 
 	$nTriesToFindFileThatFits 	= 10;	// At the end, when space gets tight, try this hard to find another file
 	$nSpaceAvailable 			= disk_free_space ($strTargetDir);
+
+	echo "Copy from:\t$strSourceDir\nCopy to:\t$strTargetDir\nKeep Free:\t" . number_format ($nSpaceReallyFullK) . " KB\n\n";
 	$nSpaceReallyFullK			*= 1024;	//  Keep 100k free at the end
 
 	//
@@ -121,7 +123,7 @@ function ReadAllFilenames (&$rarrFilesAvailable, $strSourceDir)
 if ($argc < 3) die ("Usage: {$argv[0]} TargetDir SourceDir [KeepFreeBufferInKBytes]");
 
 if (isset ($argv[3]))
-	$nSpaceReallyFull = argv[3];
+	$nSpaceReallyFull = (int) $argv[3];
 else
 	$nSpaceReallyFull = 100;
 
